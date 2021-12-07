@@ -1,10 +1,40 @@
-\documentclass[14pt, a4paper, ukrainian]{article}
+\documentclass[14pt, a4paper, ukrainian]{extreport}
 
 \usepackage[14pt]{extsizes}
 \usepackage{cmap}
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[english, ukrainian]{babel}
+\usepackage{slashbox}
+\usepackage{caption}
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблиця #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup*[figure]{labelformat=gostfigure}
+\captionsetup*[table]{labelformat=gosttable}
+\captionsetup*[figure]{labelformat=gostfigure, justification=centering}  % выравнивание по центру
+
+
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}[block]
+{\filcenter}
+{\thechapter}
+{1em}
+{\MakeUppercase}
+{}
+
+\titlespacing*{\chapter}{0pt}{-40pt}{*4} 
+
+\titleformat{\section}
+{\filright}
+{\thesection}
+{1ex}{}
+
+\titlespacing*{\section}{\parindent}{*6}{*6}
+
 
 \title{Розрахункова робота № 1}
 \author{Олександр Вергелюк}
@@ -18,10 +48,12 @@
 \usepackage{amsmath, amsfonts, amssymb, mathtools} %AMS
 \usepackage{icomma} %Розумна кома
 \usepackage{indentfirst}
+\parindent 1.25cm
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage{ulem}
+\usepackage{float}
 
 %Шрифти
 \usepackage{euscript}
@@ -46,9 +78,10 @@
 		``КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ ІМЕНІ ІГОРЯ СІКОРСЬКОГО``\\
 		КАФЕДРА МАТЕМАТИЧНИХ МЕТОДІВ  СИСТЕМНОГО АНАЛІЗУ\\\par}
 	\vspace{5cm}
-\Large \textsc{\textbf{розрахункова робота №1}}\\
-\large {з теорії ймовірності} \\
-на тему: {<<Випадкові вектори>>}
+\Large \MakeUppercase {\textsc{\textbf{{розрахункова робота №1}}}}\\
+\Large {з теорії ймовірності} \\
+на тему: {<<Випадкові вектори>>}\\
+Варіант 7
 \vfill
 \newlength{\ML}
 \settowidth{\ML}{\hspace{3.4cm}}
@@ -65,6 +98,218 @@
 Київ -- 2021
 \end{center}
 \end{titlepage}
+	\chapter{Завдання 1}
+	
+	Нехай дискретний випадковий вектор $\vec\xi = (\xi_1, \xi_2)$ задано таблицею розподілу (Таблиця {\ref {tab:task1}}).
+	
+	\begin{table}[H]
+		\caption {\label{tab:task1} Таблиця розподілу вектора $\vec \xi$}
+		
+		\begin{center}
+			\resizebox*{!}{!}{
+				\begin{tabular}{ | c | c | c | c | c | }
+					\hline
+					\backslashbox {$\xi_1$}{$\xi_2$} & -9 & 2 & 7 & 8\\
+					\hline
+					-2 & 0.17 & 0.01 & 0.07 & 0.06 \\
+					\hline
+					1 & 0.13 & 0.08 & 0.04 & 0.08 \\
+					\hline
+					2 & 0.12 & 0.02 & 0.07 & 0.15 \\
+					\hline
+				\end{tabular}
+			}
+		\end{center}
+	\end{table}
+	
+	\section{Ряди розподілу координат $\xi_1$ та $\xi_2$}
+	
+	Для $\xi_1$ використаємо формулу: $ p_i = \mathbb{P} \{\xi_1 = x_i\} = \sum_{j = 1}^{n} p_{ij}$.
+	
+	\begin{table}[H]
+		\caption{\label{tab:xi1} Ряд розподілу $\xi_1$}
+		\begin{center}
+			\resizebox*{!}{!}{
+				\begin{tabular}{| c | c | c | c |}
+					\hline
+					$x_i$ & -2 & 1 & 2 \\
+					\hline
+					$p_i$ & 0.31 & 0.33 & 0.36 \\
+					\hline
+				\end{tabular}
+		}
+		\end{center}
+	\end{table}
+	
+	Перевірка: 	$$ 0.31 + 0.33 + 0.36 = 1$$	
+	Аналогічно для $\xi_2$: $ p_j = \mathbb{P} \{\xi_2 = y_j\} = \sum_{i = 1}^{m} p_{ij} $.
+	
+	\begin{table}[H]
+		\caption{\label{tab:xi2} Ряд розподілу $\xi_2$}
+		\begin{center}
+			\resizebox*{!}{!}{
+			\begin{tabular}{| c | c | c | c | c |}
+				\hline
+				$y_i$ & -9 & 2 & 7 & 8\\
+				\hline
+				$p_i$ & 0.42 & 0.11 & 0.18 & 0.29\\
+				\hline
+			\end{tabular}
+		}
+		\end{center}
+	\end{table}
+
+	Перевірка:  $$ 0.42 + 0.11 + 0.18 + 0.29 = 1 $$
+
+	\section{Функції розподілу $F_{\xi_1}(x)$ і $F_{\xi_2}(y)$ та їх графіки}
+	
+	Для координати $\xi_1$:
+	
+	$$ F_{\xi_1} =  \begin{cases}
+		0  & x \le -2\\
+		0.31 & -2 < x \le 1\\
+		0.64 & 1 < x \le 2\\
+		1 & 2 < x
+	\end{cases}
+	$$
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_01_Fx.png}
+		\caption{Функція розподілу $F_{\xi_1}(x)$}
+		\label{im:Fx}
+	\end{figure}
+
+	Для координати $\xi_2$:
+	
+	$$F_{\xi_2}(y) = \begin{cases}
+		0 & y \le -9\\
+		0.42 & -9 < y \le 2\\
+		0.53 & 2 < y \le 7\\
+		0.71 & 7 < y \le 8\\
+		1 & 8 < y
+	\end{cases}
+	$$
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_02_Fy.png}
+		\caption{Функція розподілу $F_{\xi_2}(y)$}
+		\label{im:Fy}
+	\end{figure}
 	
 	
+	\section{Функція розподілу $F_{\vec \xi}(x, y)$ випадкового вектора}
+	
+	Зобразимо в декартовій системі координат всі точки, що відповідають значенню вектора $\vec \xi$ (рис. \ref{im:Fxy}).
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_03_Fxy_1}
+		\caption{Значення вектора $\vec \xi$ в декартовій системі координат}
+		\label{im:Fxy}
+	\end{figure}
+
+	Розіб'ємо координатну площину на області, в яких сумісна функція розподілу $F_{\vec \xi}(x, y)$ набуває однакові значення (рис. \ref{im:Fxy_D}).
+		
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_04_Fxy_2}
+		\caption{Області, в яких сумісна функція розподілу $F_{\vec \xi}(x, y)$ набуває однакові значення}
+		\label{im:Fxy_D}
+	\end{figure}
+
+	Використаємо формулу:
+	$$ F_{\vec \xi }(x, y) = \mathbb{P} \{\xi_1 < x, \xi_2 < y\} = \sum_{x_i < x} \sum_{y_j = y} p_{ij}$$
+	a) $(x, y) \in D_0 \Rightarrow F_{\vec \xi}(x, y) = 0$\\
+	b) $(x, y) \in D_1 \Rightarrow F_{\vec \xi}(x, y) = 0.17$\\
+	c) $(x, y) \in D_2 \Rightarrow F_{\vec \xi}(x, y) = 0.3$\\
+	d) $(x, y) \in D_3 \Rightarrow F_{\vec \xi}(x, y) = 0.42$\\
+	e) $(x, y) \in D_4 \Rightarrow F_{\vec \xi}(x, y) = 0.18$\\
+	f) $(x, y) \in D_5 \Rightarrow F_{\vec \xi}(x, y) = 0.39$\\
+	g) $(x, y) \in D_6 \Rightarrow F_{\vec \xi}(x, y) = 0.53$\\
+	h) $(x, y) \in D_7 \Rightarrow F_{\vec \xi}(x, y) = 0.25$\\
+	i) $(x, y) \in D_8 \Rightarrow F_{\vec \xi}(x, y) = 0.5$\\
+	j) $(x, y) \in D_9 \Rightarrow F_{\vec \xi}(x, y) = 0.71$\\
+	k) $(x, y) \in D_10 \Rightarrow F_{\vec \xi}(x, y) = 0.31$\\
+	l) $(x, y) \in D_11 \Rightarrow F_{\vec \xi}(x, y) = 0.64$\\
+	m) $(x, y) \in D_12 \Rightarrow F_{\vec \xi}(x, y) = 1$\\
+	
+	Запишемо функцію розподілу у вигляді таблиці:
+	
+	\begin{table}[H]
+		\caption{\label{tab:Fxy}Сумісна функція розподілу $F_{\vec \xi}(x, y)$}
+		\begin{center}
+			\begin{tabular}{| c | c | c | c | c | c |}
+				\hline
+				\backslashbox{$x$} {$y$} & $y \le -9$ & $ -9 < y \le 2$ & $ 2 < y \le 7 $& $ 7 < y \le 8 $ & 8 < y\\
+				\hline
+				$ x \le -2 $ & 0 & 0 & 0 & 0 & 0\\
+				\hline
+				$ -2 < x \le 1 $ & 0 & 0.17 & 0.18 & 0.25 & 0.31 \\
+				\hline
+				$ 1 < x \le 2 $ & 0 & 0.3 & 0.39 &  0.5 & 0.64\\
+				\hline
+				$ 2 < x $ & 0 & 0.42 & 0.53 & 0.71 & 1\\
+				\hline
+				
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+	Перевірка (властивість узгодження):\\
+	$$ \lim\limits_{y \to \infty} F_{\vec \xi} (x,y) = F_{\xi_1} (x) \text{ виконується, оскільки останній стовпчик -- це } F_{\xi_1} (x)$$
+	 $$\lim\limits_{x \to \infty} F_{\vec \xi} (x,y) = F_{\xi_2} (y) \text{ виконується, оскільки останній рядок -- це } F_{\xi_2} (y)$$
+	 $$\lim\limits_{
+		\begin{gathered}
+			x \to \infty\\
+			y \to \infty
+		\end{gathered}
+		} 
+		F_{\vec \xi} (x,y) = 1  \text{ виконується, оскільки } (x, y) \in D_12 \Rightarrow F_{\vec \xi} (x, y) = 1 $$
+	
+	\section{Математичні сподівання координат та кореляційна матриця}
+	
+	Знайдемо математичне сподівання координати $\xi_1$:
+	$$ \mathbb{E}\xi_1 = \sum_{i=1}^{3} x_ip_i = (-2) \cdot 0.31 + 1 \cdot 0.33 + 2 \cdot 0.36 = 0.43 $$
+	
+	Аналогічно для координати $\xi_2$:
+	$$ \mathbb{E}\xi_2 = \sum_{j=1}^{4} x_jp_j = (-9) \cdot 0.42 + 2 \cdot 0.11 + 7 \cdot 0.18 + 8 \cdot 0.29 = 0.02$$
+	
+	Центр розсіювання вектора $\vec \xi$ -- точка (0.43, 0.02).
+	
+	Дисперсія координати $\xi_1$:
+	$$ \mathbb{D}\xi_1 = \mathbb{E}({\xi_1 - \mathbb{E}\xi_1})^2 = \mathbb{E}\xi_1^2 - (\mathbb{E}\xi_1)^2 = (-2)^2 \cdot 0.31 + 1^2 \cdot 0.33 + 2^2 \cdot 0.36 = 3.01 $$
+	
+	Дисперсія координати $\xi_2$:	
+	$$\mathbb{D}\xi_2 = \mathbb{E}({\xi_2 - \mathbb{E}\xi_2})^2 = \mathbb{E}\xi_2^2 - (\mathbb{E}\xi_2)^2 =		
+		(-9)^2 \cdot 0.42 + 2^2 \cdot 0.11 + 7^2 \cdot 0.18 + 8^2 \cdot 0.29 = 61.84	$$
+			
+	Для побудови коваріаційної матриці скористаємося формулами:\\
+		$cov(\xi_1\xi_2) = \mathbb{E}\xi_1\xi_2 - \mathbb{E}\xi_1\mathbb{E}\xi_2\\
+		cov(\xi_1\xi_1) = \mathbb{D}\xi_1\\
+		cov(\xi_2\xi_2) = \mathbb{D}\xi_2$
+		
+	$$\mathbb{E}\xi_1\xi_2 = \sum_{i=1}^{3}\sum_{j=1}^{4}x_iy_jp_{ij} = (-2)\cdot(-9)\cdot0.17 + (-2)\cdot2\cdot0.01 + $$
+	$$ (-2)\cdot7\cdot0.07 + (-2)\cdot8\cdot0.06 + 1\cdot(-9)\cdot0.13 + 1\cdot2\cdot0.08 +$$
+	$$ + 1\cdot7\cdot0.04 + 1\cdot8\cdot0.08 + 2\cdot(-9)\cdot0.12 + 2\cdot2\cdot0.02 + $$
+	$$ +2\cdot7\cdot0.07 + 2\cdot8\cdot0.15 = $$
+	
+	$$ cov(\xi_1\xi_2) =  - 0.43\cdot0.02 = $$
+	
+	Тоді коваріаційна матриця:
+	
+	$$ C{\vec\xi} = \begin{pmatrix}
+		\mathbb{D}\xi_1 & cov(\xi_1\xi_2)\\
+		cov(\xi_1\xi_2) & \mathbb{D}\xi_1\\
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		3.01 & \\
+		& 61.84\\
+	\end{pmatrix}
+	$$
+	
+	Оскільки, $ \det{C\vec{\xi}} \neq 0$, то випадкові величини $\xi_1$ та $\xi_2$ корельовані та залежні. 
+	\section{Умовні ряди розподілу}
+
 \end{document}

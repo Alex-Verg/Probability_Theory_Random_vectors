@@ -293,9 +293,9 @@
 	$$\mathbb{E}\xi_1\xi_2 = \sum_{i=1}^{3}\sum_{j=1}^{4}x_iy_jp_{ij} = (-2)\cdot(-9)\cdot0.17 + (-2)\cdot2\cdot0.01 + $$
 	$$ (-2)\cdot7\cdot0.07 + (-2)\cdot8\cdot0.06 + 1\cdot(-9)\cdot0.13 + 1\cdot2\cdot0.08 +$$
 	$$ + 1\cdot7\cdot0.04 + 1\cdot8\cdot0.08 + 2\cdot(-9)\cdot0.12 + 2\cdot2\cdot0.02 + $$
-	$$ +2\cdot7\cdot0.07 + 2\cdot8\cdot0.15 = $$
+	$$ +2\cdot7\cdot0.07 + 2\cdot8\cdot0.15 = 2.29$$
 	
-	$$ cov(\xi_1\xi_2) =  - 0.43\cdot0.02 = $$
+	$$ cov(\xi_1\xi_2) = 2.29 - 0.43\cdot0.02 = 2.2814 $$
 	
 	Тоді коваріаційна матриця:
 	
@@ -304,12 +304,132 @@
 		cov(\xi_1\xi_2) & \mathbb{D}\xi_1\\
 	\end{pmatrix} = 
 	\begin{pmatrix}
-		3.01 & \\
-		& 61.84\\
+		3.01 & 2.2814\\
+		2.2814 & 61.84\\
 	\end{pmatrix}
 	$$
 	
-	Оскільки, $ \det{C\vec{\xi}} \neq 0$, то випадкові величини $\xi_1$ та $\xi_2$ корельовані та залежні. 
+	Оскільки $ cov(\xi_1\xi_2) $ , то випадкові величини $\xi_1$ та $\xi_2$ корельовані та залежні. 
 	\section{Умовні ряди розподілу}
+	Знайдемо умовні ряди розподілу для $\xi_1$ за $\xi_2 = y_j$.
+	$$\mathbb{P}(\xi_1=x_i|\xi_2=y_j) = \frac{\mathbb{P}\{ \xi_1 = x_i, \xi_2 = y_j\}}{\mathbb{P}\{\xi_2=y_j\}} = \frac{p_{ij}}{\sum_{j=1}^{m}p_{ij}}$$
+	
+	\begin{table}[H]
+		\caption{\label{tab:px|py}Умовні ряди розподілу для $\xi_1$ за $\xi_2 = y_j$}
+		\begin{center}
+			\resizebox*{0.55\textwidth}{!}{
+			\begin{tabular}{| c | c | c | c |}
+				\hline
+				\backslashbox {$\xi_1$}{x} & -2 & 1 & 2 \\
+				\hline
+				$\mathbb{P}\{\xi_1 = \cdot| \xi_2 = -9\}$ & $\frac{17}{42}$ & $\frac{13}{42}$ & $\frac{12}{42}$ \\
+				\hline
+				$\mathbb{P}\{\xi_1 = \cdot| \xi_2 = 2\}$ & $\frac{1}{11}$ & $\frac{8}{11}$ & $\frac{2}{11}$\\
+				\hline
+				$\mathbb{P}\{\xi_1 = \cdot| \xi_2 = 7\}$ & $\frac{7}{18}$ & $\frac{4}{18}$ & $\frac{7}{18}$ \\
+				\hline
+				$\mathbb{P}\{\xi_1 = \cdot| \xi_2 = 8\}$ & $\frac{6}{29}$& $\frac{8}{29}$& $\frac{15}{29}$ \\
+				\hline 
+			\end{tabular}
+		}
+		\end{center}
+	\end{table}
 
+	Перевірка:
+	$$ \sum_{i=1}^{3}\mathbb{P}\{\xi_1 = x_i | \xi_2=-9\} = \frac{17}{45} + \frac{13}{42} + \frac{12}{42} = 1$$
+	$$ \sum_{i=1}^{3}\mathbb{P}\{\xi_1 = x_i | \xi_2=2\} = 
+	\frac{1}{11} + \frac{8}{11} + \frac{2}{11} = 1$$
+	$$ \sum_{i=1}^{3}\mathbb{P}\{\xi_1 = x_i | \xi_2=7\} = 
+	\frac{7}{18} + \frac{4}{18} + \frac{7}{18} = 1$$
+	$$ \sum_{i=1}^{3}\mathbb{P}\{\xi_1 = x_i | \xi_2=8\} = \frac{6}{29} + \frac{8}{29} + \frac{15}{29} = 1$$
+	
+	Аналогічно для $\xi_1$ за $\xi_2 = y_j$.
+	$$\mathbb{P}(\xi_2=y_j|\xi_2=x_i) = \frac{\mathbb{P}\{ \xi_1 = x_i, \xi_2 = y_j\}}{\mathbb{P}\{\xi_1=x_i\}} = \frac{p_{ij}}{\sum_{i=1}^{n}p_{ij}}$$
+	
+	\begin{table}[H]
+		\caption{\label{tab:py|px}Умовні ряди розподілу для $\xi_2$ за $\xi_1 = x_i$}
+		\begin{center}
+			\resizebox*{0.65\textwidth}{!}{
+				\begin{tabular}{| c | c | c | c | c |}
+					\hline
+					\backslashbox {$\xi_2$}{y} & -9 & 2 & 7 & 8 \\
+					\hline
+					$\mathbb{P}\{\xi_2 = \cdot| \xi_1 = -2\}$ & $\frac{17}{31}$ & $\frac{1}{31}$ & $\frac{7}{31}$ & $\frac{6}{31}$ \\
+					\hline
+					$\mathbb{P}\{\xi_2 = \cdot| \xi_1 = 1\}$ & $\frac{13}{33}$ & $\frac{8}{33}$ & $\frac{4}{33}$ & $\frac{8}{33}$\\
+					\hline
+					$\mathbb{P}\{\xi_2 = \cdot| \xi_1 = 2\}$ & $\frac{12}{36}$ & $\frac{2}{36}$ & $\frac{7}{36}$ & $\frac{15}{36}$\\
+					\hline
+				\end{tabular}
+			}
+		\end{center}
+	\end{table}
+	
+	
+	Перевірка:
+	$$ \sum_{j=1}^{4}\mathbb{P}\{\xi_2 = y_j | \xi_1=-2\} = \frac{17}{31} + \frac{1}{31} + \frac{7}{31} + \frac{6}{31}= 1$$
+	$$ \sum_{j=1}^{4}\mathbb{P}\{\xi_2 = y_j | \xi_1=1\} = \frac{13}{33} + \frac{8}{33} + \frac{4}{33} + \frac{8}{33} = 1$$
+	$$ \sum_{j=1}^{4}\mathbb{P}\{\xi_2 = y_j | \xi_1=2\} = \frac{12}{36} + \frac{2}{36} + \frac{7}{36} + \frac{15}{36} = 1$$
+	
+	\section{Умовні математичні сподівання}
+	
+	Для пошуку умовного математичного сподівання $\xi_1$ за $\xi_2=y_j$ застосуємо формулу:
+	
+	$$\mathbb{E}(\xi_1|\xi_2 = y_j) = \sum_{i=1}^{3}x_i\mathbb{P}\{\xi_1=x_i, \xi_2 = y_j\}$$
+	
+	$$\mathbb{E}(\xi_1|\xi_2 = -9) = (-2)\cdot \frac{17}{42} + 1 \cdot \frac{13}{42} + 2 \cdot \frac{12}{42} = \frac{3}{42}$$
+	$$\mathbb{E}(\xi_1|\xi_2 = 2) = (-2)\cdot \frac{1}{11} + 1 \cdot \frac{8}{11} + 2 \cdot \frac{2}{11} = \frac{10}{11}$$
+	$$\mathbb{E}(\xi_1|\xi_2 = 7) = (-2)\cdot \frac{7}{18} + 1 \cdot \frac{4}{18} + 2 \cdot \frac{7}{18} = \frac{4}{18}$$
+	$$\mathbb{E}(\xi_1|\xi_2 = 8) = (-2)\cdot \frac{6}{29} + 1 \cdot \frac{8}{29} + 2 \cdot \frac{15}{29} = \frac{26}{29}$$
+	
+	Наведемо ряд умовного математичного сподівання $\xi_1|\xi_2$ у вигляді таблиці.
+	\begin{table}[H]
+		\caption{\label{tab:E1|E2}Умовне математичне сподівання $\xi_1|\xi_2=y_j$}
+		\begin{center}
+			\resizebox{0.55\textwidth}{!}{
+			\begin{tabular}{| c | c | c | c | c |}
+				\hline
+				$\mathbb{E}(\xi_1|\xi_2)$ & $\frac{3}{42}$ & $\frac{10}{11}$ & $\frac{4}{18}$ & $\frac{26}{29}$\\
+				\hline
+				$\mathbb{P}$ & 0.42 & 0.11 & 0.18 & 0.29\\
+				\hline				
+			\end{tabular}
+		}
+		\end{center}	
+	\end{table}
+	
+	Перевірка:
+	$$\mathbb{E}(\mathbb{E}(\xi_1|\xi_2)) = \frac{3}{42} \cdot 0.42 + \frac{10}{11} \cdot 0.11 + \frac{4}{18} \cdot 0.18 + \frac{26}{29} * 0.29 = 0.43 = \mathbb{E}\xi_1$$
+	
+	Аналогічно умовне математичне сподівання $\xi_2$ за $\xi_1=x_i$:
+	
+	$$\mathbb{E}(\xi_2|\xi_1 = x_i) = \sum_{j=1}^{4}y_j\mathbb{P}\{\xi_1=x_i, \xi_2 = y_j\}$$
+	
+	$$ \mathbb{E}(\xi_2|xi_1=-2) = (-9) \cdot \frac{17}{31} + 2 \cdot \frac{1}{31} + 7 \cdot \frac{7}{31} + 8 \cdot \frac{6}{31} = -\frac{54}{31} = -1\frac{23}{31}$$
+	$$ \mathbb{E}(\xi_2|xi_1=-2) = (-9) \cdot \frac{13}{33} + 2 \cdot \frac{8}{33} + 7 \cdot \frac{4}{33} + 8 \cdot \frac{8}{33} = -\frac{9}{33} = -\frac{9}{33}$$
+	$$ \mathbb{E}(\xi_2|xi_1=-2) = (-9) \cdot \frac{12}{36} + 2 \cdot \frac{2}{36} + 7 \cdot \frac{7}{36} + 8 \cdot \frac{15}{36} = \frac{65}{36} = 1\frac{29}{36}$$
+	
+	Наведемо ряд умовного математичного сподівання $\xi_2|\xi_1$ у вигляді таблиці.
+	\begin{table}[H]
+		\caption{\label{tab:E2|E1}Умовне математичне сподівання $\xi_2|\xi_1=x_i$}
+		\begin{center}
+			\resizebox{0.5\textwidth}{!}{
+				\begin{tabular}{| c | c | c | c |}
+					\hline
+					$\mathbb{E}(\xi_2|\xi_1)$ & $-1\frac{23}{31}$ & -$\frac{9}{33}$ & $1\frac{29}{36}$\\
+					\hline
+					$\mathbb{P}$ & 0.31 & 0.33 & 0.36\\
+					\hline				
+				\end{tabular}
+			}
+		\end{center}	
+	\end{table}
+	
+	Перевірка:
+	$$ \mathbb{E}(\mathbb{E}(\xi_2|\xi_1)) = (-1\frac{23}{31}) \cdot 0.31 + (-\frac{9}{33}) \cdot 0.33 + 1\frac{29}{36} \cdot 0.36 = 0.02 = \mathbb{E}\xi_2 $$
+	
+	
+	\chapter{Завдання 2}
+	
+	
 \end{document}

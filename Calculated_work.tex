@@ -218,7 +218,7 @@
 	\end{figure}
 
 	Використаємо формулу:
-	$$ F_{\vec \xi }(x, y) = \mathbb{P} \{\xi_1 < x, \xi_2 < y\} = \sum_{x_i < x} \sum_{y_j = y} p_{ij}$$
+	$$ F_{\vec \xi }(x, y) = \mathbb{P} \{\xi_1 < x, \xi_2 < y\} = \sum_{i:x_i < x} \sum_{j:y_j = y} p_{ij}$$
 	a) $(x, y) \in D_0 \Rightarrow F_{\vec \xi}(x, y) = 0$\\
 	b) $(x, y) \in D_1 \Rightarrow F_{\vec \xi}(x, y) = 0.17$\\
 	c) $(x, y) \in D_2 \Rightarrow F_{\vec \xi}(x, y) = 0.3$\\
@@ -464,6 +464,8 @@
 	$$ = 6 + 2\pi
 	$$
 	
+	В подальшому для обчислення інтегралу $\int\sqrt{4-x^2}dx$ користуватимемось загальною формулою, яка наведена у додатку А.
+	
 	Позначимо $S_D = 6 + 2\pi$.
 	
 	Отже, щільність розподілу:
@@ -509,7 +511,7 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\textwidth]{./Image/Im_06_f1.png}
+		\includegraphics[width=\textwidth]{./Image/Im_06_f1.png}
 		\caption{Щільність координати $\xi_1(x)$}
 		\label{im:f1}
 	\end{figure}
@@ -541,13 +543,149 @@
 	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\textwidth]{./Image/Im_07_f2.png}
+		\includegraphics[width=\textwidth]{./Image/Im_07_f2.png}
 		\caption{Щільність координати $\xi_2(y)$}
 		\label{im:f2}
 	\end{figure}
 	
 	
 	\section{Функції розподілу координати $\xi_1$ та $\xi_2$}
+	
+	Обчислимо функцію розподілу $F_{\xi_1}(x)$ координати $\xi_1$.
+	
+	$$F_{\xi_1}(x) = \int_{-\infty}^{x}f_{\xi_1}(x)dx$$
+	
+		$$F_{\xi_1}(x) = \begin{dcases}
+		0 & x \le -2\\
+		\dfrac{1}{6+2\pi} \int_{-2}^{x}(2s+4+\sqrt{4-s^2})ds& -2 < x \le -1\\
+		F_{\xi_1}(-1) + \dfrac{1}{6+2\pi} \int_{-1}^{x}(2+\sqrt{4-s^2})ds & -1 < x \le 1\\
+		F_{\xi_1}(1)+\dfrac{1}{6+2\pi} \int_{1}^{x}(4-2s+\sqrt{4-s^2})ds & 1 < x \le 2\\
+		1 & 2 < x
+	\end{dcases} 
+	$$
+	
+	$$F_{\xi_1}(x) = \begin{dcases}
+		0 & x \le -2\\
+		\dfrac{x^2 + 4x + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + 4 + \pi}{6+2\pi} & -2 < x \le -1\\
+		\dfrac{2x + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + 3 + \pi}{6+2\pi} & -1 < x \le 1\\
+		\dfrac{4x - x^2 + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2}+  2 + \pi}{6+2\pi} & 1 < x \le 2\\
+		1 & 2 < x
+	\end{dcases} 
+	$$
+	
+	Перевірка неперервності функції розподілу $F_{\xi_1}(x)$ в точках склейки.
+	
+	$$
+	\lim\limits_{-2-0}F_{\xi_1}(x) = 0$$
+	$$\lim\limits_{-2+0}F_{\xi_1}(x) = \lim\limits_{-2+0}\left(\dfrac{x^2 + 4x + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + 4 + \pi}{6+2\pi}\right) = $$
+	$$ = \dfrac{(-2)^2 + 4(-2) + 2\arcsin{\frac{(-2)}{2}} + \frac{(-2)}{2}\sqrt{4-(-2)^2} + 4 + \pi}{6+2\pi} = $$
+	$$ = \dfrac{4 - 8 - \pi + 4 + \pi}{6+2\pi} = 0
+	$$
+	$$\lim\limits_{-1-0}F_{\xi_1}(x) = \lim\limits_{-1-0} \left(\dfrac{x^2 + 4x + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + 4 + \pi}{6+2\pi}\right) = $$
+	$$ =\dfrac{(-1)^2 + 4(-1) + 2\arcsin{\frac{(-1)}{2}} + \frac{(-1)}{2}\sqrt{4-(-1)^2} + 4 + \pi}{6+2\pi} = 
+	$$ 
+	$$ = \dfrac{1 -4 - \frac{\pi}{3} - \frac{\sqrt{3}}{2} + 4 + \pi}{6+2\pi} = \dfrac{1 + \frac{2\pi}{3} - \frac{\sqrt{3}}{2}}{6+2\pi}
+	$$
+	$$\lim\limits_{-1+0}F_{\xi_1}(x) = 
+	\lim\limits_{-1+0}\left(\dfrac{2x + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + 3 + \pi}{6+2\pi}\right) = 
+	$$
+	$$= \dfrac{2(-1) + 2\arcsin{\frac{(-1)}{2}} - \frac{1}{2}\sqrt{4-(-1)^2} + 3 + \pi}{6+2\pi} = 
+	$$
+	$$ \dfrac{-2 -\frac{\pi}{3} - \frac{\sqrt{3}}{2} + 3 + \pi}{6+2\pi} = \dfrac{1  + \frac{2\pi}{3} - \frac{\sqrt{3}}{2}}{6+2\pi}
+	$$
+	$$ \lim\limits_{1-0}F_{\xi_1}(x) = 
+	\lim\limits_{1-0}\left(\dfrac{2x + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + 3 + \pi}{6+2\pi}\right) = 
+	$$
+	$$ = \dfrac{2 + 2\arcsin{\frac{1}{2}} + \frac{1}{2}\sqrt{4-1^2} + 3 + \pi}{6+2\pi} = 
+	$$
+	$$ = \dfrac{2 + \frac{\pi}{3} + \frac{\sqrt{3}}{2} + 3 + \pi}{6+2\pi} = \dfrac{5 + \frac{4\pi}{3} + \frac{\sqrt{3}}{2}}{6+2\pi}
+	$$
+	$$ \lim\limits_{1+0}F_{\xi_1}(x) = 
+	\lim\limits_{1+0}\left(\dfrac{4x - x^2 + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2}+  2 + \pi}{6+2\pi}\right) = 
+	$$
+	$$ = \dfrac{4 - 1^2 + 2\arcsin{\frac{1}{2}} + \frac{1}{2}\sqrt{4-1^2}+  2 + \pi}{6+2\pi} = 
+	$$
+	$$ = \dfrac{4 - 1 + \frac{\pi}{3} + \frac{\sqrt{3}}{2}+  2 + \pi}{6+2\pi} = \dfrac{5 + \frac{4\pi}{3} + \frac{\sqrt{3}}{2}}{6+2\pi}
+	$$
+	$$\lim\limits_{2-0}F_{\xi_1}(x) = 
+	\lim\limits_{2-0}\left(\dfrac{4x - x^2 + 2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2}+  2 + \pi}{6+2\pi}\right) = 
+	$$
+	$$ = \dfrac{4(2) - 2^2 + 2\arcsin{\frac{2}{2}} + \frac{2}{2}\sqrt{4-2^2} +  2 + \pi}{6+2\pi} =
+	$$
+	$$ = \dfrac{8 - 4 + \pi +  2 + \pi}{6+2\pi} = \dfrac{6 + 2\pi}{6+2\pi} = 1
+	$$ 
+	$$ \lim\limits_{2+0}F_{\xi_1}(x) = 1
+	$$
+	
+	Як видно, в точках склейки значення функції розподілу збігається, отже $F_{\xi_1}(x)$ -- неперервна (це також видно з графіку наведеного на рис.\ref{im:F1}).
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_08_F1.png}
+		\caption{Функція розподілу $F_{\xi_1}(x)$}
+		\label{im:F1}
+	\end{figure}
+	
+	Аналогічно обчислимо функцію розподілу $F_{\xi_2}(y)$ координати $\xi_2$.
+	
+	$$ F_{\xi_2}(y) = 
+	\begin{dcases}
+			0 & x \le -2\\
+			\dfrac{2}{6+2\pi}\int_{-2}^{y}\sqrt{4-y^2}dy & -2 \le y \le 0\\
+			\dfrac{1}{6+2\pi}\left(F_{\xi_2}(0) +  \int_{0}^{y}(4-y)dy \right)& 0 \le y \le 2\\
+			1 & 2 < y\\
+	\end{dcases}
+	$$
+	
+	$$ F_{\xi_2}(y) = 
+	\begin{dcases}
+		0 & x \le -2\\
+		\dfrac{2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + \pi}{3+\pi} & -2 \le y \le 0\\
+		\dfrac{4y - \frac{y^2}{2} + 2\pi}{6+2\pi}& 0 \le y \le 2\\
+		1 & 2 < y\\
+	\end{dcases}
+	$$
+	
+		Перевірка неперервності функції розподілу $F_{\xi_2}(y)$ в точках склейки.
+		
+		$$\lim\limits_{-2-0}F_{\xi_2}(y) = 0
+		$$
+		$$\lim\limits_{-2+0}F_{\xi_2}(y) = \lim\limits_{-2+0}\left(\dfrac{2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + \pi}{3+\pi}\right) =
+		$$
+		$$ = \dfrac{2\arcsin{\frac{(-2)}{2}} + \frac{(-2)}{2}\sqrt{4-(-2)^2} + \pi}{3+\pi} = \dfrac{-\pi + \pi}{3+\pi} = 0
+		$$
+		$$\lim\limits_{0-0}F_{\xi_2}(y) = \lim\limits_{0-0}\left(\dfrac{2\arcsin{\frac{x}{2}} + \frac{x}{2}\sqrt{4-x^2} + \pi}{3+\pi}\right) = 
+		$$
+		$$ = \dfrac{2\arcsin{\frac{0}{2}} + \frac{0}{2}\sqrt{4-0^2} + \pi}{3+\pi} = \dfrac{0 +0 +\pi}{3+\pi} = \dfrac{\pi}{3+\pi}
+		$$
+		$$\lim\limits_{0+0}F_{\xi_2}(y) = \lim\limits_{0-0}\left(\dfrac{4y - \frac{y^2}{2} + 2\pi}{6+2\pi}\right) =
+		$$
+		$$ = \dfrac{4(0) - \frac{0^2}{2} + 2\pi}{6+2\pi} = \dfrac{0 - 0 + 2\pi}{6+2\pi} = \dfrac{2\pi}{6+2\pi} = \dfrac{\pi}{3+\pi}
+		$$
+		$$ \lim\limits_{2-0}F_{\xi_2}(y) = \lim\limits_{2-0}\left(\dfrac{4(2) - \frac{2^2}{2} + 2\pi}{6+2\pi}\right) =
+		$$
+		$$ = \dfrac{8 - \frac{4}{2} + 2\pi}{6+2\pi} = \dfrac{8 - 2 + 2\pi}{6+2\pi} = \dfrac{6 + 2\pi}{6+2\pi} = 1
+		$$
+		$$ \lim\limits_{2+0}F_{\xi_2}(y) = 1
+		$$
+		
+		Як видно, в точках склейки значення функції розподілу збігається, отже $F_{\xi_2}(y)$ -- неперервна (це також видно з графіку наведеного на рис.\ref{im:F2}).
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{./Image/Im_09_F2.png}
+			\caption{Функція розподілу $F_{\xi_2}(y)$}
+			\label{im:F2}
+		\end{figure}
+	
+	
+	\section{Сумісна функція розподілу випадкового вектора $\vec\xi$}
+	
+	
+	\section{Математичні сподівання координат}
+	
+	
+	
 	
 	\chapter*{Додаток А}
 	\centering Обчислення інтеграла $\int\sqrt{4-x^2}dx$

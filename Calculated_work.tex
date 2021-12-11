@@ -33,8 +33,6 @@
 {\thesection}
 {1ex}{}
 
-\titlespacing*{\section}{\parindent}{*6}{*6}
-
 
 \title{Розрахункова робота № 1}
 \author{Олександр Вергелюк}
@@ -68,7 +66,7 @@
 	{\hbox{$\mathsurround=0pt #1$}}{}}
 
 \begin{document}
-\begin{titlepage}
+	\begin{titlepage}
 	\centering
 	\vspace{1cm}
 	{ МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ\\
@@ -428,8 +426,147 @@
 	Перевірка:
 	$$ \mathbb{E}(\mathbb{E}(\xi_2|\xi_1)) = (-1\frac{23}{31}) \cdot 0.31 + (-\frac{9}{33}) \cdot 0.33 + 1\frac{29}{36} \cdot 0.36 = 0.02 = \mathbb{E}\xi_2 $$
 	
-	
+		
 	\chapter{Завдання 2}
 	
+	Двовимірний випадковий вектор $\vec \xi = (\xi_1, \xi_2)$ рівномірно розподілений в області \textit{D}, яка наведена на рис. \ref{im:task2}.
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{./Image/Im_05_task2.png}
+		\caption{Область, в якій розподілено $\vec\xi$}
+		\label{im:task2}
+	\end{figure}
+	
+	Рівняння ліній, що обмежують область \textit{D}:
+	$$\begin{cases}
+		y=2 & -1 \le x \le 1\\
+		y=-2x + 4 & 1 \le x \le 2\\
+		y = -\sqrt{4 - x^2} & -2 \le x \le 2\\
+		y=2x + 4 & -2 \le x \le -1\\
+	\end{cases}$$
+
+	\section{Щільності розподілу координат $\xi_1$ та $\xi_2$}
+	
+	Знайдемо щільність розподілу за формулою:
+	$$f_{\vec \xi}(x, y) = 
+	\begin{cases}
+		\frac{1}{S_D} & (x, y) \in D\\
+		0 & (x, y) \notin D\\
+	\end{cases}
+	$$
+	
+	$$S_D = \iint\limits_D dxdy = \int_{-2}^{-1}dx\int_{-\sqrt{4-x^2}}^{2x+4}dy + \int_{-1}^{1}dx\int_{-\sqrt{4-x^2}}^{2}dy + \int_{1}^{2}dx\int_{-\sqrt{4-x^2}}^{-2x+4}dy =$$
+	$$ = \int_{-2}^{-1}(2x+4 + \sqrt{4-x^2})dx + \int_{-1}^{1}(2 + \sqrt{4-x^2})dx + \int_{1}^{2}(4- 2x+\sqrt{4-x^2})dx =$$
+	$$ = \int_{-2}^{-1}(2x+4)dx + \int_{-1}^{1}2dx + \int_{1}^{2}(4- 2x)dx + \int_{-2}^{2}\sqrt{4-x^2}dx=$$
+	$$ = \left.\left(x^2 + 4x\right)\right|_{-2}^{-1} + \left.2x\right|_{-1}^{1} + \left.\left(4x - x^2\right)\right|_{1}^{2} - 4\int_{\pi}^{0}\sin^2{\varphi}d\varphi = $$
+	$$ = 1 + 4 + 1 + 2\int_{0}^{\pi}(1 -\cos{2\varphi})d\varphi = 6 + \left.(2\varphi - \sin{2\varphi})\right|_{0}^{\pi} = $$
+	$$ = 6 + 2\pi
+	$$
+	
+	Позначимо $S_D = 6 + 2\pi$.
+	
+	Отже, щільність розподілу:
+	$$f_{\vec \xi}(x, y) = 
+	\begin{dcases}
+		\frac{1}{6+2\pi} & (x, y) \in D\\
+		0 & (x, y) \notin D\\
+	\end{dcases}
+	$$
+	
+	Тепер знайдемо маргінальні щільності координат вектора.
+		
+	$$f_{\xi_1}(x) = \int_{-\infty}^{\infty}f_{\vec\xi}(x, y)dy =
+	\begin{dcases}
+		0 & x \le -2\\
+		\frac{1}{S_D}\int_{-\sqrt{4-x^2}}^{2x+4}dy & -2 < x \le -1\\
+		 \frac{1}{S_D}\int_{-\sqrt{4-x^2}}^{2}dy & -1 < x \le 1\\
+		 \frac{1}{S_D}\int_{-\sqrt{4-x^2}}^{-2x+4}dy & 1 < x \le 2\\
+		 0 & 2 < x
+	\end{dcases}
+	$$	
+	
+	$$f_{\xi_1}(x) = \int_{-\infty}^{\infty}f_{\vec\xi}(x, y)dy =
+	\begin{dcases}
+		0 & x \le -2\\
+		\frac{2x+4+\sqrt{4-x^2}}{6+2\pi} & -2 < x \le -1\\
+		\frac{2+\sqrt{4-x^2}}{6+2\pi} & -1 < x \le 1\\
+		\frac{4-2x+\sqrt{4-x^2}}{6+2\pi} & 1 < x \le 2\\
+		0 & 2 < x
+	\end{dcases}
+	$$	
+	
+	Перевірка умови нормування: $\int_{-\infty}^{\infty}f_{\xi_1}(x)dx = 1$.
+	
+	$$ \int_{-\infty}^{\infty}f_{\xi_1}(x)dx = \dfrac{1}{6+2\pi}\left(\int_{-2}^{-1}(2x+4+\sqrt{4-x^2})dx + \int_{-1}^{1}(2+\sqrt{4-x^2})dx \right) +$$
+	$$ + \dfrac{1}{6+2\pi}
+	\int_{1}^{2}(4-2x+\sqrt{4-x^2})dx = $$
+	$$ = \dfrac{1}{6+2\pi}\left(\int_{-2}^{-1}(2x+4)dx + \int_{-1}^{1}2dx + \int_{1}^{2}(4- 2x)dx + \int_{-2}^{2}\sqrt{4-x^2}dx\right)=$$
+	$$ = \dfrac{1}{6+2\pi}\left(\left.\left(x^2 + 4x\right)\right|_{-2}^{-1} + \left.2x\right|_{-1}^{1} + \left.\left(4x - x^2\right)\right|_{1}^{2} - 4\int_{\pi}^{0}\sin^2{\varphi}d\varphi\right) = $$
+	$$ = \dfrac{1}{6+2\pi}\left(1 + 4 + 1 + 2\int_{0}^{\pi}(1 -\cos{2\varphi})d\varphi = 6 + \left.(2\varphi - \sin{2\varphi})\right|_{0}^{\pi} \right)= $$
+	$$ = \dfrac{6 + 2\pi}{6+2\pi} = 1
+	$$
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{./Image/Im_06_f1.png}
+		\caption{Щільність координати $\xi_1(x)$}
+		\label{im:f1}
+	\end{figure}
+	
+	$$f_{\xi_2}(y) = \int_{-\infty}^{\infty}f_{\vec\xi}(x, y)dx =
+	\begin{dcases}
+		0 & y \le -2\\
+		\frac{1}{S_D}\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}}dx & -2 < y \le 0\\
+		\frac{1}{S_D}\int_{0.5y - 2}^{-0.5y + 2}dx & 0 < y \le 2\\
+		0 & 2 < y
+	\end{dcases}
+	$$
+		
+	$$f_{\xi_2}(y) = 
+	\begin{dcases}
+		0 & y \le -2\\
+		\dfrac{2\sqrt{4-y^2}}{6+2\pi} & -2 < y \le 0\\
+		\frac{4-y}{6+2\pi} & 0 < y \le 2\\
+		0 & 2 < y
+	\end{dcases}
+	$$
+	
+	Перевірка умови нормування: $\int_{-\infty}^{\infty}f_{\xi_2}(y)dy = 1$.
+	
+	$$\int_{-\infty}^{\infty}f_{\xi_2}(y)dy = \dfrac{1}{6+2\pi}\left(2\int_{-2}^{0}\sqrt{4-y^2}dy + \int_{0}^{2}(4-y)dy \right) = $$
+	$$ = \dfrac{1}{6+2\pi} \left(8\int_{-\frac{\pi}{2}}^{0}\cos^2{\varphi}d\varphi + \left.(4y - \dfrac{y^2}{2})\right|_0^2)\right) =$$ 
+	$$ = \dfrac{1}{6+2\pi}\left(4\int_{-\frac{\pi}{2}}^{0}(1+cos{2\varphi})d\varphi + 6\right) = $$
+	$$ = \dfrac{1}{6 + 2\pi} \left(\left.\left(4\varphi + 2\sin{2\varphi}\right)\right|_{-\frac{\pi}{2}}^0 + 6\right) = \frac{6 + 2\pi}{6 + 2\pi} = 1 $$
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{./Image/Im_07_f2.png}
+		\caption{Щільність координати $\xi_2(y)$}
+		\label{im:f2}
+	\end{figure}
+	
+	
+	\section{Функції розподілу координати $\xi_1$ та $\xi_2$}
+	
+	\chapter*{Додаток А}
+	\centering Обчислення інтеграла $\int\sqrt{4-x^2}dx$
+	
+	$$ \int\sqrt{4-x^2}dx = 2\int\sqrt{1-\dfrac{x^2}{4}}dx  = \left|
+	\begin{matrix}
+		\dfrac{x}{2} = \sin{t}\\
+		t = \arcsin\dfrac{x}{2}\\
+		dx = 2\cos{t}dt\\
+	\end{matrix}
+	\right| = 4\int\sqrt{1-{\sin^2{t}}}\cos{t}dt = 
+	$$
+	$$ = 4\int\cos^2{t}dt = 2\int(1+\cos{2t})dt = 2t + sin2t + C =
+	$$
+	$$
+	= 2t + 2\sin{t}\cos{t} + C = 2t + 2\sin{t}\sqrt{1-\sin^2{t}} + C = 
+	$$
+	$$
+	= 2\arcsin{\dfrac{x}{2}} + \dfrac{x}{2}\sqrt{4-x^2} + C
+	$$
+		
 \end{document}

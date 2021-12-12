@@ -488,7 +488,7 @@
 	\end{dcases}
 	$$	
 	
-	$$f_{\xi_1}(x) = \int_{-\infty}^{\infty}f_{\vec\xi}(x, y)dy =
+	$$f_{\xi_1}(x) = 
 	\begin{dcases}
 		0 & x \le -2\\
 		\frac{2x+4+\sqrt{4-x^2}}{6+2\pi} & -2 < x \le -1\\
@@ -783,6 +783,77 @@
  	$$\det{C_{\vec\xi}}  = \frac{5 + 2\pi}{6+2\pi} \cdot \frac{\frac{20}{3} + 2\pi}{6+2\pi} = \frac{\frac{100}{3} + \frac{70\pi}{3} + 4\pi^2}{36 + 24\pi + 2\pi^2} > 0$$
  	 	
  	\section{Умовні щільності розподілу для кожної координати}
+ 	
+ 	$$f_{\xi_1}(x|y) = \dfrac{f_{\vec \xi}(x, y)}{f_{\xi_2}(y)} $$
+ 	$$f_{\xi_2}(y|x) = \dfrac{f_{\vec \xi}(x, y)}{f_{\xi_1}(x)} $$
+ 	
+ 	$$f_{\vec \xi}(x, y) = 
+ 	\begin{dcases}
+ 		\frac{1}{6+2\pi} & (x, y) \in D\\
+ 		0 & (x, y) \notin D\\
+ 	\end{dcases}
+ 	$$
+ 	
+ 	$$f_{\xi_1}(x) = \int_{-\infty}^{\infty}f_{\vec\xi}(x, y)dy =
+ 	\begin{dcases}
+ 		0 & x \le -2\\
+ 		\frac{2x+4+\sqrt{4-x^2}}{6+2\pi} & -2 < x \le -1\\
+ 		\frac{2+\sqrt{4-x^2}}{6+2\pi} & -1 < x \le 1\\
+ 		\frac{4-2x+\sqrt{4-x^2}}{6+2\pi} & 1 < x \le 2\\
+ 		0 & 2 < x
+ 	\end{dcases}
+ 	$$	
+ 	
+ 		$$f_{\xi_2}(y) = 
+ 	\begin{dcases}
+ 		0 & y \le -2\\
+ 		\dfrac{2\sqrt{4-y^2}}{6+2\pi} & -2 < y \le 0\\
+ 		\frac{4-y}{6+2\pi} & 0 < y \le 2\\
+ 		0 & 2 < y
+ 	\end{dcases}
+ 	$$
+ 	
+ 	Знайдемо спочатку $f_{\xi_1}(x|y)$:
+ 	
+ 	$$ f_{\xi_1}(x|y) = 
+ 	\begin{cases}
+ 		\text{не визначено} & y \le -2\\
+ 		\begin{dcases}
+ 			\frac{1}{2\sqrt{4-y^2}} & x \in [-\sqrt{4-y^2}; \sqrt{4-y^2}]\\
+ 			0 & x \notin [-\sqrt{4-y^2}; \sqrt{4-y^2}]\\
+ 		\end{dcases} & -2 < y \le 0\\
+ 		\begin{dcases}
+ 			\frac{1}{4-y}& x \in \left[\frac{y}{2} - 2; 2 - \frac{y}{2}\right]\\
+ 			0 & x \notin \left[\frac{y}{2} - 2; 2 - \frac{y}{2}\right]\\
+ 		\end{dcases} & 0 < y \le 2\\
+ 		\text{не визначено} & 2 < y\\
+ 	\end{cases}
+ 	$$
+ 	
+ 	Аналогічно:
+ 	
+ 	 $$ f_{\xi_2}(y|x) = 
+ 	\begin{cases}
+ 		\text{не визначено} & x \le -2\\
+ 		\begin{dcases}
+ 			\frac{1}{2x + 4 + \sqrt{4-x^2}} & y \in [-\sqrt{4 - y^2}; 2x + 4]\\
+ 			0 & y \notin [-\sqrt{4 - y^2}; 2x + 4]\\
+ 		\end{dcases} & -2 < x \le -1\\
+ 		\begin{dcases}
+ 			\frac{1}{2 + \sqrt{4-x^2}} & y \in [-\sqrt{4 - y^2}; 2]\\
+ 			0 & y \notin [-\sqrt{4 - y^2}; 2]\\
+ 		\end{dcases} & -1 < x \le -1\\
+ 		\begin{dcases}
+ 			\frac{1}{4 - 2x + \sqrt{4-x^2}} & y \in [-\sqrt{4 - y^2}; 4 - 2x]\\
+ 			0 & y \notin [-\sqrt{4 - y^2}; 4 - 2x]\\
+ 		\end{dcases} & 1 < x \le 2\\
+ 		\text{не визначено} & 2 < x\\
+ 	\end{cases}
+ 	$$
+ 	
+ 	
+ 	\section{Умовні математичні сподівання для кожної координати}
+ 	
  	
  	
  	

@@ -702,19 +702,27 @@
 	$\\
 	$ D_3 = \{(x, y) \in \mathbb{R} | (|y + 2x| < 4) \wedge (0 < y \le 2)\}
 	$\\
-	$ D_4 = \{(x, y) \in \mathbb{R} | ((-2 < x \le -1) \wedge (2x + 4 < y)) \vee ((-1 < x \le 1) \wedge (2 < y))\}
+	$ D_4 = \{(x, y) \in \mathbb{R} | (1 < x \le 2) \wedge (4 - 2x < y \le 2)\}
 	$\\
-	$ D_5 = \{(x, y) \in \mathbb{R} | (1 < x \le 2) \wedge (4 - 2x < y \le 2)\}
+	$ D_5 = \{(x, y) \in \mathbb{R} | (2 < x) \wedge (0 < y \le 2)\}
 	$\\
-	$ D_6 = \{(x, y) \in \mathbb{R} | (2 < x) \wedge (0 < y \le 2)\}
+	$ D_6 = \{(x, y) \in \mathbb{R} | (-2 < x \le -1) \wedge (2x + 4 < y)\}$\\
+	$ D_7 = \{(x, y) \in \mathbb{R} | (-1 < x \le 1) \wedge (2 < y)\}
+	$\\		
+	$ D_8 = \{(x, y) \in \mathbb{R} | (1 < x \le 2) \wedge (2 < y)\}
 	$\\
-	$ D_7 = \{(x, y) \in \mathbb{R} | (1 < x \le 2) \wedge (2 < y)\}
-	$\\
-	$ D_8 = \{(x, y) \in \mathbb{R} | (2 < x) \wedge (2 < y)\}
+	$ D_9 = \{(x, y) \in \mathbb{R} | (2 < x) \wedge (2 < y)\}
 	$\\
 	
 	\subsection{ $(x, y) \in D_0$ }
 	$F_{\vec \xi}^{\left(D_0\right)} = 0$
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_11_D_0.png}
+		\caption{$(x, y) \in D_0$}
+		\label{im:D_0}
+	\end{figure}
 	
 	Перевірка: 
 	
@@ -722,6 +730,13 @@
 	$$
 	
 	\subsection{$(x, y) \in D_1 $}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_12_D_1.png}
+		\caption{$(x, y) \in D_1$}
+		\label{im:D_1}
+	\end{figure}
 	
 	$$ F_{\vec \xi}^{\left(D_1\right)} = \frac{1}{6 + 2\pi}\int_{-\sqrt{4-y^2}}^{x}ds\int_{-\sqrt{4-s^2}}^{y}dt = \frac{1}{6+2\pi}\int_{-\sqrt{4-y^2}}^{x}(y + \sqrt{4-s^2})ds = 
 	$$ 
@@ -756,6 +771,13 @@
 	
 	\subsection{$(x, y) \in D_2 $}
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_13_D_2.png}
+		\caption{$(x, y) \in D_2 $}
+		\label{im:D_2}
+	\end{figure}
+	
 	$$ F_{\vec \xi}^{\left(D_2\right)}(x, y) = F_{\vec \xi}^{\left(D_1\right)}(\sqrt{4-y^2}, y) = 
 	$$
 	$$ = \dfrac{1}{6+2\pi}\left(\sqrt{4-y^2} + 2\arcsin\frac{\sqrt{4-y^2}}{2} + \frac{\sqrt{4-y^2}}{2}\sqrt{4-(\sqrt{4-y^2})^2} + \right. 
@@ -785,6 +807,13 @@
 	$F_{\vec \xi}^{\left(D_1\right)}(\sqrt{4-y^2}, y)$. Натомість свідченням того, що все зроблено вірно є те, що сумісна функція розподілу співпала із маргінальною $ F_{\xi_2} (y) $ при $y \in [-2; 0]$.
 	
 	\subsection{$(x, y) \in D_3 $}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_14_D_3.png}
+		\caption{$(x, y) \in D_3 $}
+		\label{im:D_3}
+	\end{figure}
 	
 	$$ F_{\vec \xi}^{\left(D_3\right)}(x, y) = F_{\vec \xi}^{\left(D_1\right)}(x, 0) + \frac{1}{6+2\pi}\left(\int_{-2}^{0.5y-2}ds\int_{0}^{2s+4}dt +  \int_{0.5y-2}^{x}ds\int_{0}^{y}dt\right)= 
 	$$
@@ -819,6 +848,13 @@
 	$$
 		
 	\subsection{$(x, y) \in D_4 $}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_15_D_4.png}
+		\caption{$(x, y) \in D_4 $}
+		\label{im:D_4}
+	\end{figure}
 	
 	$$ F_{\vec \xi}^{\left(D_4\right)}(x, y) = F_{\vec \xi}^{\left(D_3\right)}(x, 4 - 2x) + \frac{1}{6+2\pi}\left(\int_{4-2x}^{y}dt\int_{0.5t - 2}^{2 - 0.5t}ds \right)= 
 	$$
@@ -871,6 +907,13 @@
 	
 	\subsection{$(x, y) \in D_5$}
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_16_D_5.png}
+		\caption{$(x, y) \in D_5$}
+		\label{im:D_5}
+	\end{figure}
+	
 	$$ F_{\vec \xi}^{\left(D_5\right)}(x, y) = F_{\vec \xi}^{\left(D_4\right)}(2, y) = \frac{4\cdot2 - 2^2 + 2\arcsin\frac{2}{2} + \frac{2}{2}\sqrt{4-2^2} - 4 + \pi + 4y - \frac{y^2}{2}}{6+2\pi} = 
 	$$
 	$$ = \frac{8 - 4 + \pi - 4 + \pi + 4y - \frac{y^2}{2}}{6+2\pi} = \frac{4y - \frac{y^2}{2} + 2\pi }{6 + 2\pi}
@@ -887,6 +930,13 @@
 	$F_{\vec \xi}^{\left(D_4\right)}(x, 4 - 2x)$. Натомість свідченням того, що все зроблено вірно є те, що сумісна функція розподілу співпала із маргінальною $ F_{\xi_2} (y) $ при $y \in [0; 2]$.
 	
 	\subsection{$(x, y) \in D_6$}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_17_D_6.png}
+		\caption{$(x, y) \in D_6$}
+		\label{im:D_6}
+	\end{figure}
 	
 	$$ F_{\vec \xi}^{\left(D_6\right)}(x, y) = F_{\vec \xi}^{\left(D_3\right)}(x, 2x + 4) = \frac{1}{6+2\pi}\left(x(2x+4) + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - \right.
 	$$
@@ -909,6 +959,13 @@
 	
 	\subsection{$(x, y) \in D_7$}
 	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_18_D_7.png}
+		\caption{$(x, y) \in D_7$}
+		\label{im:D_7}
+	\end{figure}
+	
 	$$ F_{\vec \xi}^{\left(D_7\right)}(x, y) = F_{\vec \xi}^{\left(D_3\right)}(x, 2) = \frac{1}{6+2\pi}\left(2x + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - \right.
 	$$
 	$$ \left.- 0.25(2)^2 + 4 + \pi \right) = 
@@ -930,6 +987,13 @@
 		
 	
 	\subsection{$(x, y) \in D_8$}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_19_D_8.png}
+		\caption{$(x, y) \in D_8$}
+		\label{im:D_8}
+	\end{figure}
 	
 	$$ F_{\vec \xi}^{\left(D_8\right)}(x, y) = F_{\vec \xi}^{\left(D_4\right)}(x, 4 - 2x) +  \frac{1}{6+2\pi}\int_{4 - 2x}^{2}dt\int_{0.5t - 2}^{2 - 0.5 t}ds = 
 	$$
@@ -970,6 +1034,13 @@
 	$$
 	
 	\subsection{$(x, y) \in D_9$}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./Image/Im_20_D_9.png}
+		\caption{$(x, y) \in D_9$}
+		\label{im:D_9}
+	\end{figure}
 	
 	$F_{\vec \xi}^{\left(D_9\right)} = 1$
 	
@@ -1223,6 +1294,16 @@
  	$$ \int_{-\infty}^{\infty}\mathbb{E}(\xi_1|\xi_2)f_{\xi_2}(y)dy = \int_{-\infty}^{\infty}0f_{\xi_2}(y)dy = 0 = \mathbb{E}\xi_1
  	$$
  	
+ 	Графік умовного математичного сподівання $\mathbb{E}(\xi_1|\xi_2)$ наведено на рис.\ref{im:Ex|y}.
+ 	
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.8\textwidth]{./Image/Im_21_E_x_y.png}
+ 		\caption{$\mathbb{E}(\xi_1|\xi_2)$}
+ 		\label{im:Ex|y}
+ 	\end{figure}
+ 	
+ 	
  	$ \mathbb{E}(\xi_2|\xi_1) = \int_{-\infty}^{\infty}yf_{\xi_2}(y|x)dy = $
  	$$ = 
  	\begin{dcases}
@@ -1286,6 +1367,15 @@
  	$$
  	$$ = \frac{1}{12 + 4\pi}\left(-\frac{17}{3} + \frac{16}{3} + \frac{2}{3} + \frac{16}{3} - \frac{17}{3}\right) = 0 = \mathbb{E}\xi_2
  	$$
+ 	
+ 	 Графік умовного математичного сподівання $\mathbb{E}(\xi_2|\xi_1)$наведено на рис.\ref{im:Ey_x}.
+ 	
+ 	\begin{figure}[H]
+ 		\centering
+ 		\includegraphics[width=0.8\textwidth]{./Image/Im_22_E_y_x.png}
+ 		\caption{$\mathbb{E}(\xi_2|\xi_1)$}
+ 		\label{im:Ey_x}
+ 	\end{figure}
  	
 	\chapter*{Додаток А}
 	\centering Обчислення інтеграла $\int\sqrt{4-x^2}dx$

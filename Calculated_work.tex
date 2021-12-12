@@ -721,7 +721,7 @@
 	$$\frac{\partial^2F_{\vec\xi}^{\left(D_0\right)}}{\partial x \partial y} = \frac{\partial^2 0 }{\partial x \partial y} = 0 = f_{\vec{\xi}}
 	$$
 	
-	1) $(x, y) \in D_1 $
+	\subsection{$(x, y) \in D_1 $}
 	
 	$$ F_{\vec \xi}^{\left(D_1\right)} = \frac{1}{6 + 2\pi}\int_{-\sqrt{4-y^2}}^{x}ds\int_{-\sqrt{4-s^2}}^{y}dt = \frac{1}{6+2\pi}\int_{-\sqrt{4-y^2}}^{x}(y + \sqrt{4-s^2})ds = 
 	$$ 
@@ -799,7 +799,7 @@
 	
 	Перевірка:
 	
-	$$\frac{\partial^2F_{\vec\xi}^{\left(D_3\right)}}{\partial x \partial y} = \frac{\partial^2}{\partial x \partial y}\left(\frac{xy + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 0.25y^2 + 2y + \pi}{6+2\pi}\right) = 0 = f_{\vec\xi}
+	$$\frac{\partial^2F_{\vec\xi}^{\left(D_3\right)}}{\partial x \partial y} = \frac{\partial^2}{\partial x \partial y}\left(\frac{xy + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 0.25y^2 + 2y + \pi}{6+2\pi}\right) = \frac{1}{6+2\pi} = f_{\vec\xi}
 	$$
 	
 	Перевірка стику областей $D_1$ та $D_3$ : $ y =0$
@@ -815,15 +815,196 @@
 	
 	Отже:
 	
-	$$  F_{\vec\xi}^{\left({D_1}\right)}(x, 0) =  F_{\vec\xi}^{\left({D_3}\right)}(x, 0) =
+	$$  F_{\vec\xi}^{\left({D_1}\right)}(x, 0) =  F_{\vec\xi}^{\left({D_3}\right)}(x, 0) = \dfrac{2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + \pi}{6+2\pi}
 	$$
 		
 	\subsection{$(x, y) \in D_4 $}
 	
-	$$ F_{\vec \xi}^{\left(D_4\right)}(x, y) = F_{\vec \xi}^{\left(D_1\right)}(x, 0) + \frac{1}{6+2\pi}\left(\int_{-2}^{0.5y-2}ds\int_{0}^{2s+4}dt +  \int_{0.5y-2}^{x}ds\int_{0}^{y}dt\right)= 
+	$$ F_{\vec \xi}^{\left(D_4\right)}(x, y) = F_{\vec \xi}^{\left(D_3\right)}(x, 4 - 2x) + \frac{1}{6+2\pi}\left(\int_{4-2x}^{y}dt\int_{0.5t - 2}^{2 - 0.5t}ds \right)= 
+	$$
+	$$ = \frac{1}{6+2\pi}\left(x(4-2x) + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} -  \right.
+	$$
+	$$ - 0.25(4-2x)^2 + 2(4-2x) + \left. \pi + \int_{4-2x}^{y}(4-t)dt\right) = 
+	$$
+	$$ = \frac{1}{6+2\pi}\left(4x - 2x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} -  \right.
+	$$
+	$$ - 4 + 4x -x^2 + 8-4x + \left. \pi + \left.\left(4t - \frac{t^2}{2}\right)\right|_{4-2x}^{y}\right) = 
+	$$
+	$$ = \frac{1}{6+2\pi}\left(4x - 3x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} +  \right.
+	$$
+	$$ + \left. 4 + \pi + 4y - \frac{y^2}{2} - 16 + 8x + 8 - 8x + 2x^2\right) = 
+	$$
+	$$ = \frac{4x -x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 4 + \pi + 4y - \frac{y^2}{2}}{6+2\pi} 
 	$$
 	
+	Перевірка:
 	
+	$$\frac{\partial^2F_{\vec\xi}^{\left(D_4\right)}}{\partial x \partial y} = \frac{\partial^2}{\partial x \partial y}\left(\frac{4x - x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 4 + \pi + 4y - \frac{y^2}{2}}{6+2\pi}\right) = 
+	$$
+	$$ = 0 = f_{\vec\xi}
+	$$
+	
+	Перевірка стику областей $D_3$ та $D_4$ : $ y = 4 - 2x$
+	
+	$$ F_{\vec\xi}^{\left({D_3}\right)}(x, 4 - 2x) = \frac{1}{6+2\pi} \left(x(4-2x) + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} -\right.
+	$$
+	$$ \left. - 0.25(4 - 2x)^2 + 2(4 - 2x) + \pi\right) =
+	$$
+	$$ = \frac{1}{6+2\pi} \left(4x - 2x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} -\right.
+	$$
+	$$ \left. - 0.25(16 - 16x + 4x^2) + 8 - 4x + \pi\right) =
+	$$ 
+	$$= \frac{2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 3x^2 + 4x + 4 + \pi}{6+2\pi}
+	$$ 
+	
+	$$ F_{\vec\xi}^{\left({D_4}\right)}(x, 4 - 2x) = \frac{4x -x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 4 + \pi + 4(4-2x) - \frac{(4-2x)^2}{2}}{6+2\pi} = 
+	$$
+	$$ = \frac{4x -x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 4 + \pi + 16 -8x - 8 + 8x - 2x^2}{6+2\pi} = 
+	$$ 
+	$$ = \frac{2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 3x^2 + 4x + 4 + \pi}{6+2\pi}
+	$$ 
+	
+	Отже:
+	
+	$$  F_{\vec\xi}^{\left({D_3}\right)}(x, 4-2x) =  F_{\vec\xi}^{\left({D_3}\right)}(x, 4-2x) = \frac{2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 3x^2 + 4x + 4 + \pi}{6+2\pi}
+	$$
+	
+	\subsection{$(x, y) \in D_5$}
+	
+	$$ F_{\vec \xi}^{\left(D_5\right)}(x, y) = F_{\vec \xi}^{\left(D_4\right)}(2, y) = \frac{4\cdot2 - 2^2 + 2\arcsin\frac{2}{2} + \frac{2}{2}\sqrt{4-2^2} - 4 + \pi + 4y - \frac{y^2}{2}}{6+2\pi} = 
+	$$
+	$$ = \frac{8 - 4 + \pi - 4 + \pi + 4y - \frac{y^2}{2}}{6+2\pi} = \frac{4y - \frac{y^2}{2} + 2\pi }{6 + 2\pi}
+	$$
+	
+	Отримали маргінальну функцію розподілу $ F_{\xi_2} (y) $ при $y \in [0; 2]$, як і має бути.
+	
+	Перевірка:
+	
+	$$\frac{\partial^2F_{\vec\xi}^{\left(D_5\right)}}{\partial x \partial y} = \frac{\partial^2}{\partial x \partial y}\left(\frac{4y - \frac{y^2}{2} + 2\pi }{6 + 2\pi}\right) = 0 = f_{\vec\xi}
+	$$
+	
+	Перевірка стику областей $D_4$ та $D_5$ : $ y = 4 - 2x$ можна не робити, оскільки $F_{\vec \xi}^{\left(D_5\right)}(x, y)$ отримана за допомогою відповідної підстановки з \\
+	$F_{\vec \xi}^{\left(D_4\right)}(x, 4 - 2x)$. Натомість свідченням того, що все зроблено вірно є те, що сумісна функція розподілу співпала із маргінальною $ F_{\xi_2} (y) $ при $y \in [0; 2]$.
+	
+	\subsection{$(x, y) \in D_6$}
+	
+	$$ F_{\vec \xi}^{\left(D_6\right)}(x, y) = F_{\vec \xi}^{\left(D_3\right)}(x, 2x + 4) = \frac{1}{6+2\pi}\left(x(2x+4) + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - \right.
+	$$
+	$$ \left.- 0.25(2x+4)^2 + 2(2x+4) + \pi \right) = 
+	$$
+	$$ = \frac{2x^2 +4x + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - x^2 - 4x -4 + 4x +8 + \pi}{6+2\pi} = 
+	$$
+	$$ = \frac{x^2 +4x +4 +\pi + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2}}{6+2\pi} 
+	$$
+	
+	Отримали маргінальну функцію розподілу $ F_{\xi_1} (x) $ при $x \in [-2; -1]$, як і має бути.
+	
+	Перевірка:
+	
+	$$\frac{\partial^2F_{\vec\xi}^{\left(D_6\right)}}{\partial x \partial y} = \frac{\partial^2}{\partial x \partial y} \left(\frac{x^2 +4x +4 +\pi + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2}}{6+2\pi} \right) = 0 = f_{\vec\xi}
+	$$
+	
+	Перевірка стику областей $D_3$ та $D_6$ : $ y = 2x + 4$ можна не робити, оскільки $F_{\vec \xi}^{\left(D_6\right)}(x, y)$ отримана за допомогою відповідної підстановки з \\
+	$F_{\vec \xi}^{\left(D_3\right)}(x, 2x + 4)$. Натомість свідченням того, що все зроблено вірно є те, що сумісна функція розподілу співпала із маргінальною $ F_{\xi_1} (x) $ при $y \in [-2; -1]$.
+	
+	\subsection{$(x, y) \in D_7$}
+	
+	$$ F_{\vec \xi}^{\left(D_7\right)}(x, y) = F_{\vec \xi}^{\left(D_3\right)}(x, 2) = \frac{1}{6+2\pi}\left(2x + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - \right.
+	$$
+	$$ \left.- 0.25(2)^2 + 4 + \pi \right) = 
+	$$
+	$$ = \frac{2x + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 1 + 4 + \pi}{6+2\pi} = 
+	$$
+	$$ = \frac{2x + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + 3 + \pi}{6+2\pi} 
+	$$
+	
+	Отримали маргінальну функцію розподілу $ F_{\xi_1} (x) $ при $x \in [-1; 1]$, як і має бути.
+	
+	Перевірка:
+	
+	$$\frac{\partial^2F_{\vec\xi}^{\left(D_7\right)}}{\partial x \partial y} = \frac{\partial^2}{\partial x \partial y} \left(\frac{2x + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + 3 + \pi}{6+2\pi} \right) = 0 = f_{\vec\xi}
+	$$
+	
+	Перевірка стику областей $D_3$ та $D_7$ : $ y = 2$ можна не робити, оскільки $F_{\vec \xi}^{\left(D_7\right)}(x, y)$ отримана за допомогою відповідної підстановки з \\
+	$F_{\vec \xi}^{\left(D_3\right)}(x, 2)$. Натомість свідченням того, що все зроблено вірно є те, що сумісна функція розподілу співпала із маргінальною $ F_{\xi_1} (x) $ при $y \in [-1; 1]$.
+		
+	
+	\subsection{$(x, y) \in D_8$}
+	
+	$$ F_{\vec \xi}^{\left(D_8\right)}(x, y) = F_{\vec \xi}^{\left(D_4\right)}(x, 4 - 2x) +  \frac{1}{6+2\pi}\int_{4 - 2x}^{2}dt\int_{0.5t - 2}^{2 - 0.5 t}ds = 
+	$$
+	$$ = \frac{1}{6+2\pi}\left(4x -x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} -  \right.
+	$$
+	$$ - \left.4 + \pi + 4(4 - 2x) - \frac{(4-2x)^2}{2} + \int_{4 - 2x}^{2}(4 - s)dt\right) = 
+	$$
+	$$ = \frac{1}{6+2\pi}\left(4x -x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} -  \right.
+	$$
+	$$ - \left.4 + \pi + 16 - 8x - 8 +8x -2x^2 + \left.\left(4s - \frac{s^2}{2}\right)\right|_{4-2x}^{2}\right) =
+	$$
+	$$ = \frac{1}{6+2\pi}\left(4x -3x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + \right.
+	$$
+	$$ + \left.4 + \pi +8 - 2 - 16 + 8x + 8 - 8x +2x^2 \right) =
+	$$
+	$$ = \frac{4x - x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + 2 + \pi}{6+2\pi}
+	$$
+	
+	Отримали маргінальну функцію розподілу $ F_{\xi_1} (x) $ при $x \in [1; 2]$, як і має бути.
+	
+	Перевірка:
+	
+	$$\frac{\partial^2F_{\vec\xi}^{\left(D_8\right)}}{\partial x \partial y} = \frac{\partial^2}{\partial x \partial y} \left(\frac{4x - x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + 2 + \pi}{6+2\pi}\right) = 0 = f_{\vec\xi}
+	$$
+	
+	Перевірка стику областей $D_4$ та $D_8$ : $ y = 2$ 
+	
+	$$ F_{\vec\xi}^{\left({D_4}\right)}(x, 2) = \frac{4x -x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} - 4 + \pi + 4\cdot 2 - \frac{2^2}{2}}{6+2\pi} = 
+	$$
+	$$ = \frac{4x -x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + 2 + \pi }{6+2\pi}
+	$$
+	
+	$$ F_{\vec\xi}^{\left({D_8}\right)}(x, 2) =  \frac{4x - x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + 2 + \pi}{6+2\pi}
+	$$
+	
+	Отже:	
+	$$  F_{\vec\xi}^{\left({D_4}\right)}(x, 2) =  F_{\vec\xi}^{\left({D8}\right)}(x, 2) = \frac{4x - x^2 + 2\arcsin\frac{x}{2} + \frac{x}{2}\sqrt{4-x^2} + 2 + \pi}{6+2\pi}
+	$$
+	
+	\subsection{$(x, y) \in D_9$}
+	
+	$F_{\vec \xi}^{\left(D_9\right)} = 1$
+	
+	Перевірка: 
+	
+	$$\frac{\partial^2F_{\vec\xi}^{\left(D_9\right)}}{\partial x \partial y} = \frac{\partial^2 1 }{\partial x \partial y} = 0 = f_{\vec{\xi}}
+	$$
+	
+	Перевірка стику областей $D_8$ та $D_9$ : $ x = 2$ 
+	
+	$$ F_{\vec\xi}^{\left({D_8}\right)}(2, y) = \frac{4\cdot 2 -2^2 + 2\arcsin\frac{2}{2} + \frac{2}{2}\sqrt{4-2^2} + 2 + \pi }{6+2\pi} = 
+	$$
+	$$ = \frac{8 -4 + \pi + 0 + 2 + \pi }{6+2\pi} = 1
+	$$
+	
+	$$ F_{\vec\xi}^{\left({D_9}\right)}(x, 2) =  1
+	$$
+	
+	Отже:	
+	$$  F_{\vec\xi}^{\left({D_8}\right)}(x, 2) =  F_{\vec\xi}^{\left({D_9}\right)}(x, 2) = 1
+	$$
+	
+	Перевірка стику областей $D_5$ та $D_9$ : $ y = 2$ 
+	
+	$$ F_{\vec\xi}^{\left({D_5}\right)}(x, 2) = \frac{4 \ \cdot 2 - \frac{2^2}{2} + 2\pi }{6 + 2\pi}= \frac{6 + 2\pi}{6 + 2\pi} = 1
+	$$
+	
+	$$ F_{\vec\xi}^{\left({D_9}\right)}(x, 2) =  1
+	$$
+	
+	Отже:	
+	$$  F_{\vec\xi}^{\left({D_5}\right)}(2, y) =  F_{\vec\xi}^{\left({D_9}\right)}(2, y) = 1
+	$$
+	
+		
 	\section{Математичні сподівання координат. Коваріаційна матриця}
 	
 	Математичне сподівання $\xi_1$:

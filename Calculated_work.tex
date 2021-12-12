@@ -70,6 +70,8 @@
 \newcommand*{\hm}[1]{#1\nobreak\discretionary{}%
 	{\hbox{$\mathsurround=0pt #1$}}{}}
 
+
+
 \begin{document}
 	\begin{titlepage}
 	\centering
@@ -91,10 +93,10 @@
 \hfill
 \begin{minipage}{0.48\textwidth}
 	Виконав студент 2 курсу групи КА-06\\
-	Вергелюк Олександр Андрійович
+	Вергелюк Олександр\\ Андрійович
 	
 	Перевірив: \\
-	Ільєнко А. Б.
+	Ільєнко Андрій\\ Борисович
 \end{minipage}
 \vfill
 \begin{center}
@@ -102,7 +104,7 @@
 \end{center}
 \end{titlepage}
 	\chapter{Завдання 1}
-	
+	\setcounter{page}{2}
 	Нехай дискретний випадковий вектор $\vec\xi = (\xi_1, \xi_2)$ задано таблицею розподілу (Таблиця {\ref {tab:task1}}).
 	
 	\begin{table}[H]
@@ -234,9 +236,9 @@
 	h) $(x, y) \in D_7 \Rightarrow F_{\vec \xi}(x, y) = 0.25$\\
 	i) $(x, y) \in D_8 \Rightarrow F_{\vec \xi}(x, y) = 0.5$\\
 	j) $(x, y) \in D_9 \Rightarrow F_{\vec \xi}(x, y) = 0.71$\\
-	k) $(x, y) \in D_10 \Rightarrow F_{\vec \xi}(x, y) = 0.31$\\
-	l) $(x, y) \in D_11 \Rightarrow F_{\vec \xi}(x, y) = 0.64$\\
-	m) $(x, y) \in D_12 \Rightarrow F_{\vec \xi}(x, y) = 1$\\
+	k) $(x, y) \in D_{10} \Rightarrow F_{\vec \xi}(x, y) = 0.31$\\
+	l) $(x, y) \in D_{11} \Rightarrow F_{\vec \xi}(x, y) = 0.64$\\
+	m) $(x, y) \in D_{12} \Rightarrow F_{\vec \xi}(x, y) = 1$\\
 	
 	Запишемо функцію розподілу у вигляді таблиці:
 	
@@ -269,7 +271,7 @@
 			y \to \infty
 		\end{gathered}
 		} 
-		F_{\vec \xi} (x,y) = 1  \text{ виконується, оскільки } (x, y) \in D_12 \Rightarrow F_{\vec \xi} (x, y) = 1 $$
+		F_{\vec \xi} (x,y) = 1  \text{ виконується, оскільки } (x, y) \in D_{12} \Rightarrow F_{\vec \xi} (x, y) = 1 $$
 	
 	\section{Математичні сподівання координат та кореляційна матриця}
 	
@@ -312,7 +314,11 @@
 	\end{pmatrix}
 	$$
 	
-	Оскільки $ cov(\xi_1\xi_2) $ , то випадкові величини $\xi_1$ та $\xi_2$ корельовані та залежні. 
+	Оскільки $ cov(\xi_1\xi_2) \neq 0 $ , то випадкові величини $\xi_1$ та $\xi_2$ корельовані та залежні.
+	Перевіримо додатну визначеність матриці:
+	
+	$$\det{C\vec{\xi}} = 3.01 \cdot 61.84 - 2.2814^2 = 183.857 > 0$$
+	 
 	\section{Умовні ряди розподілу}
 	Знайдемо умовні ряди розподілу для $\xi_1$ за $\xi_2 = y_j$.
 	$$\mathbb{P}(\xi_1=x_i|\xi_2=y_j) = \frac{\mathbb{P}\{ \xi_1 = x_i, \xi_2 = y_j\}}{\mathbb{P}\{\xi_2=y_j\}} = \frac{p_{ij}}{\sum_{j=1}^{m}p_{ij}}$$
@@ -1165,7 +1171,7 @@
  		
  	$cov(\xi_1, \xi_2) = 0$, як і має бути, оскільки область $D$ симетрична відносно осі $OY$. Звідси можна зробити висновок, що величини $\xi_1$ та $\xi_2$ некорельовані, відповідно $r(\xi_1, \xi_2) = 0$. Тоді коваріаційна матриця буде:
  	
- 	$$C_{\vec\xi} = \left(  
+ 	$$C{\vec\xi} = \left(  
  	\begin{matrix}
  		\dfrac{5+2\pi}{6+2\pi} & 0\\
  		0 & \dfrac{\frac{20}{3} + 2\pi}{6 + 2\pi}\\

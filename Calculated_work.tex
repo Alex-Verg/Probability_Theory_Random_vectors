@@ -39,6 +39,17 @@
 {1ex}{}
 
 
+%Clickable contents list
+\usepackage{hyperref}
+\hypersetup{
+	pdftitle={Розрахунково-графічна робота},
+	pdfauthor={Олександр Вергелюк},
+	linkbordercolor= 1 1 1
+}
+% \usepackage{tocloft}
+% \renewcommand{\cftchapdotsep}{\cftdotsep} % dotted chapter leaders
+
+
 \title{Розрахункова робота № 1}
 \author{Олександр Вергелюк}
 \date{\today}
@@ -103,8 +114,11 @@
 Київ -- 2021
 \end{center}
 \end{titlepage}
-	\chapter{Завдання 1}
 	\setcounter{page}{2}
+	\renewcommand\contentsname{Зміст}
+	\tableofcontents
+	\chapter{Завдання 1}
+
 	Нехай дискретний випадковий вектор $\vec\xi = (\xi_1, \xi_2)$ задано таблицею розподілу (Таблиця {\ref {tab:task1}}).
 	
 	\begin{table}[H]

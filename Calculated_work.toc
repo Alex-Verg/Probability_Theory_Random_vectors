@@ -1,0 +1,25 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Завдання 1}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Ряди розподілу координат $\xi _1$ та $\xi _2$}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Функції розподілу $F_{\xi _1}(x)$ і $F_{\xi _2}(y)$ та їх графіки}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Функція розподілу $F_{\vec \xi }(x, y)$ випадкового вектора}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Математичні сподівання координат та кореляційна матриця}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Умовні ряди розподілу}{8}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Умовні математичні сподівання}{10}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Завдання 2}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Щільності розподілу координат $\xi _1$ та $\xi _2$}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Функції розподілу координати $\xi _1$ та $\xi _2$}{16}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Сумісна функція розподілу випадкового вектора $\vec \xi $}{20}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1} $(x, y) \in D_0$ }{21}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}$(x, y) \in D_1 $}{22}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}$(x, y) \in D_2 $}{24}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}$(x, y) \in D_3 $}{26}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}$(x, y) \in D_4 $}{28}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}$(x, y) \in D_5$}{30}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}$(x, y) \in D_6$}{31}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8}$(x, y) \in D_7$}{32}{subsection.2.3.8}%
+\contentsline {subsection}{\numberline {2.3.9}$(x, y) \in D_8$}{34}{subsection.2.3.9}%
+\contentsline {subsection}{\numberline {2.3.10}$(x, y) \in D_9$}{36}{subsection.2.3.10}%
+\contentsline {section}{\numberline {2.4}Математичні сподівання координат. Коваріаційна матриця}{38}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Умовні щільності розподілу для кожної координати}{41}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Умовні математичні сподівання для кожної координати}{42}{section.2.6}%
